@@ -1,0 +1,4 @@
+1) check status system: 
+ -- errors, environment, health, beans, info, metrics, trace, configprops, and dump.
+ 
+2)

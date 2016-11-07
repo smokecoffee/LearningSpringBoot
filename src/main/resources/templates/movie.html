@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        <h2>Get database and showing on table</h2>
+        <table border="1">
+            <tr th:each="movieModel : ${movieModels}">
+                <td th:text=" 'id = ' +${movieModel.id}">1</td>
+                <td><a href="#" th:text="'title = ' + ${movieModel.title}">Title ...</a></td>
+                <td th:text=" 'year = ' + ${movieModel.year}">Text ...</td>
+            </tr>
+        </table>
+    </body>
+</html>

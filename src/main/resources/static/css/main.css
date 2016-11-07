@@ -1,0 +1,329 @@
+@charset "utf-8";
+
+/* ========================================
+    リセットcss
+========================================= */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-style:normal;
+  font-weight: normal;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+html{overflow-y: scroll;}
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after,q:before, q:after {content: ''; content: none;}
+input, textarea,{margin: 0; padding: 0;}
+ol, ul{list-style:none;}
+table{border-collapse: collapse; border-spacing:0;}
+caption, th{text-align: left;}
+a:focus {outline:none;}
+
+
+/* micro clearfix */
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+.cf:after {clear: both;}
+.cf {*zoom: 1;}
+
+/*
+a {
+	color:#474747;
+	text-decoration:none;
+}
+*/
+
+/* BODY CONTENTS */
+body{
+  font-family: "メイリオ", Meiryo;
+  /* 全体の文字色 */
+  color: #434343;
+  background-color: #f6f6f6;
+}
+
+/* HEADER FOR OPEN.HTML */
+div#header_inner{
+  width: 100%;
+  height: 111px;
+  line-height: 111px;
+  margin:0 auto;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+div#header_inner h3{
+  font-size: 30px;
+  font-weight: 900;
+  text-align:center;
+  background-color:#fff;
+}
+
+/* HEADER */
+header{
+  width: 100%;
+  height: 111px;
+  background-color:#fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+div#header_upper{
+  width: 100%;
+  height: 29px;   
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+div.container{
+  width: 1150px;
+  height: 29px;
+  line-height: 29px;
+  margin:0 auto;
+}
+
+div.contact{
+  width:auto;
+  height:29px;
+  font-size:11px;
+  float:left;
+}
+div.contact b{
+  font-weight: 900;
+  margin:0 10px;
+}
+
+div.user-area{
+  width:auto;
+  height:29px;
+  font-size:11px;
+  float:right;    
+}
+
+div.user-area b{
+  color: #1396e2; 
+  font-weight: 900;
+  margin:0 10px;
+}
+
+div#header_middle{
+  width: 100%;
+  height: 82px;
+  position: relative;
+}
+
+div.middle_inner{
+  width: 1150px;
+  height: 22px;
+  padding:30px 0;
+  margin: 0 auto;
+}
+
+div.middle_inner a{
+  float: left;    
+}
+
+div#button_wrapper{
+  padding:30px 0;
+  position: absolute;
+  top:0;
+  right: 100px;
+}
+
+div.btn-group{
+　float: right;
+}
+
+div.dropdown-menu a{
+  display: block;
+}
+
+div.middle_inner nav ul li{
+	font-size: 14px;
+    font-weight: bold;
+    margin-right:10px;
+	border-left: 1px solid #e8e8e8;
+	float: left;
+}
+
+div.middle_inner nav ul li:last-child{
+	border-right: 1px solid #e8e8e8;
+}
+
+#viewMap {
+  width:100%;
+  height:500px;
+  border:2px solid #f6f6f6;
+}
+
+div#download_content{
+  width:800px;
+  height:auto;
+  margin:0 auto;
+  float:left;
+}
+
+div#download_content span{
+  background-color: rgba(246,172,77,0.9);
+  padding:0 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color:#fff;
+  height: 32px;
+  line-height: 32px;
+}
+
+div#main_contents{
+  width:100%;
+  height:auto;
+}
+
+div#contents_wrapper{
+  width:800px;
+  height:100px;
+  margin:0 auto;
+}
+
+div#marker_change{
+  width:270px;
+  height:auto;
+  margin-right:10px;
+  border: 4px solid #dcdddf;
+  padding: 10px;
+  float:left;
+}
+
+div#marker_change span,div#trip_show span, div#map_change span{
+    width:auto;
+    height:auto;
+    margin-bottom:10px;
+    font-size: 18px;
+    font-weight: bold;
+    color:#333333;
+    /* background-color: rgba(246,172,77,0.9);*/
+    height: 32px;
+    line-height: 32px;
+    display: block;
+}
+
+div#marker_change button,div#trip_show button{
+    margin-right:15px;
+}
+
+div#marker_change button{
+    width: auto;
+    height: 30px;
+    background-color: #7e7e7e;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+div#trip_show{
+  width:170px;
+  height:auto;
+  margin-right:10px;
+  border: 4px solid #dcdddf;
+  padding: 10px;
+  float:left;
+}
+
+div#trip_show button{
+    width: auto;
+    height: 30px;
+    background-color: #7e7e7e;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+div#marker_change button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+div#trip_show button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+div#map_change{
+  width:240px;
+  height:auto;
+  border: 4px solid #dcdddf;
+  padding: 10px;
+  float:left;
+}
+
+div#map_change button{
+    width: auto;
+    height: 30px;
+    background-color: #7e7e7e;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+div#map_change button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+div#modal_content{
+  width:50%;
+  margin:1.5em auto 0;
+  padding:10px 20px;
+  border:2px solid #aaa;
+  background:#fff;
+  display:hidden;
+}
+
+.trip1 {
+    /*
+    border-radius: 120px;
+    opacity: .75;
+    background-color: #FF0000;
+    */
+    background: url('..\\images\\straight.png') no-repeat;
+}
+
+.trip2 {
+    /*
+    border-radius: 120px;
+    opacity: .75;
+    */    
+    background: url('..\\images\\brake.png') no-repeat;
+}
+
+/* フッター */
+footer{
+    width: 100%;
+    height: 140px;
+    background-color: #fff;
+    border-top: 1px solid #dcdddf;
+    padding: 20px 0;
+    margin-top: 60px;
+}
+
+
+
