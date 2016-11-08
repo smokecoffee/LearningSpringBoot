@@ -2,7 +2,7 @@ var myApp = angular.module('myApp', ['leaflet-directive']);
 
 myApp.controller('mainController', ['$scope', '$filter',  '$timeout','leafletMarkerEvents','leafletMapEvents', '$http',
     function ($scope, $filter, $timeout,leafletMarkerEvents,leafletMapEvents, $http) {
-    
+    $scope.markers = [];
     /* DEFINE $SCOPE VARIABLES */
     
     $scope.icons = {
@@ -26,27 +26,28 @@ myApp.controller('mainController', ['$scope', '$filter',  '$timeout','leafletMar
     };
     $http.get('/canDetailDataApi').then(function(response) {
     	var array = response.data;
-        $scope.markers =response.data;
 
-        var result =[];
         angular.forEach(array, function(value, i) {
+            var yyddmm = new Date(value.testYyddmm + " " + value.testHhmmss);
+
+            var hh = yyddmm.getHours();
+
             var tmp ={
             	 layer: 'trip1',
-                 lat: 35.663296,
-                 lng: 139.73235,
+                 lat: value.mapLatitude,
+                 lng: value.mapLongitude,
                  focus: true,
                  click:true,
                  timestamp:{
-                     month:10,
-                     day:13,
-                     hour:16,
-                     minute:04,
-                     second:25
+                     month:yyddmm.getMonth() + 1,
+                     day:yyddmm.getDate(),
+                     hour:yyddmm.getHours(),
+                     minute:yyddmm.getMinutes(),
+                     second:yyddmm.getMilliseconds()
                  },
                  icon: $scope.icons.trip1
             }
-            	
-            result.push(tmp);
+            $scope.markers.push(tmp);
             
         });
     });

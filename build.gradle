@@ -1,0 +1,50 @@
+buildscript {
+	ext {
+		springBootVersion = '1.4.1.RELEASE'
+	}
+	repositories {
+		//mavenCentral()
+		jcenter()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+apply plugin: 'idea'
+// apply plugin: 'war'
+
+// tag::jar[]
+jar {
+	baseName = 'AutomobileSensor'
+	version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile("org.springframework.boot:spring-boot-starter-web")
+	compile('org.springframework.boot:spring-boot-starter-batch')
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	compile('org.springframework.boot:spring-boot-starter-data-rest')
+	// compile("org.springframework.boot:spring-boot-starter-actuator")
+	compile('org.springframework.boot:spring-boot-configuration-processor')
+	compile('com.google.code.gson:gson')
+	compile('org.springframework.boot:spring-boot-devtools')
+    compile('org.hsqldb:hsqldb')
+	runtime('com.h2database:h2')
+	compile('mysql:mysql-connector-java')
+	compile("org.webjars:bootstrap:3.3.7")
+	compile("org.webjars:jquery:3.1.1")
+	compile('org.springframework.boot:spring-boot-starter-log4j2')
+	testCompile('org.springframework.boot:spring-boot-starter-test')	
+}

@@ -7,17 +7,22 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import koga.automobile.service.StorageService;
+import koga.automobile.storage.StorageProperties;
+
 //@RestController
 @SpringBootApplication
+@EnableConfigurationProperties(StorageProperties.class)
 public class AutomobileSensorApplication extends SpringBootServletInitializer{
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	String home() {
 		return "index";
 	}
@@ -43,6 +48,14 @@ public class AutomobileSensorApplication extends SpringBootServletInitializer{
 			}
 			System.out.println("-- end of Beans --");
 
+		};
+	}
+	
+	@Bean
+	CommandLineRunner init(StorageService storageService) {
+		return (args) -> {
+            storageService.deleteAll();
+            storageService.init();
 		};
 	}
 }
