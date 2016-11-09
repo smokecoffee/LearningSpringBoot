@@ -45,7 +45,6 @@ public class BatchConfiguration {
         FlatFileItemReader<CanDetailData> reader = new FlatFileItemReader<CanDetailData>();
         reader.setResource(new ClassPathResource("csv/sample-data4.csv"));
         reader.setLinesToSkip(1);
-        System.out.println("XXXXXx");
         reader.setLineMapper(new DefaultLineMapper<CanDetailData>() {{
             setLineTokenizer(new DelimitedLineTokenizer() {{
                 setNames(new String[] {"testId", "frameNo", "mapLatitude","mapLongitude", "testYyddmm", "testHhmmss", "drivingTime" });

@@ -1,18 +1,218 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    </head>
-    <body>
-        <div>
-            hello, <p th:text ="${name}" />
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+	<meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="icon" href="https://v4-alpha.getbootstrap.com/favicon.ico"/>
+    
+    <title>Test Page Template for Bootstrap</title>
+    
+    <!-- Bootstrap CSS bootstrap/4.0.0-alpha.5-->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous"> </link>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"></link> -->
+ 	<!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/> -->
+ 	
+ 	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css"/> -->
+ 	
+ 	<!-- Bootstrap CSS bootstrap/3.3.7-->
+ 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+
+ 	<link rel="stylesheet" href="css/sticky-footer-navbar.css"/>
+ 	<link rel="stylesheet" href="css/custom.css"/>
+  </head>
+  <body>
+  
+    
+    <!-- Fixed navbar -->
+    <div class="pos-f-t">
+      <div class="collapse" id="navbar-header">
+        <div class="container bg-inverse p-1">
+          <h3>Collapsed content</h3>
+          <p>Toggleable via the navbar brand.</p>
         </div>
-    </body>
+      </div>
+      <nav class="navbar navbar-light navbar-static-top bg-faded">
+        <div class="container">
+          <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2" aria-expanded="false" aria-controls="exCollapsingNavbar2" aria-label="Toggle navigation"></button>
+          <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+            <a class="navbar-brand" href="#">Import CAN Data</a>
+            <ul class="nav navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Viewer <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Archives</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">More ..</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Begin page content -->
+    <div class="container">
+		<div class="mt-1"></div>
+		<fieldset class="extra-condition-border">
+		    <legend class="extra-condition-border">抽出条件</legend>
+		    <div class="control-group">
+		        <label class="control-label input-label" for="course">コース :</label>
+		        <input type="text" class="datetime" id="course" name="course" placeholder="" />
+		        <span ></span>
+		        <label class="control-label input-label" for="driver">コース :</label>
+		        <input type="text" class="datetime" id="driver" name="driver" placeholder="" />
+		        <label class="control-label input-label" for="experimentDate">コース :</label>
+		        <input type="text" class="datetime" id="experimentDate" name="experimentDate" placeholder="" />
+		    </div>
+		</fieldset>
+		
+		 <fieldset class="summary-condition-border">
+		    <legend class="summary-condition-border">集約条件</legend>
+		    <div class="control-group">
+		    	<!-- 集約単位 = Summary Unit -->
+		        <label class="control-label input-label" for="summaryUnit">集約単位 :</label>
+		        <input type="text" class="datetime" id="summaryUnit" name="summaryUnit" placeholder="0.1" />
+		        <label>秒単位</label>
+		        
+		        <!-- 集約条件１ -->
+		        <div class="panel panel-default">
+		        	<div class="panel-heading">集約条件１ <button type="button" class="btn btn-sm btn-default pull-right" style="margin-top: -5px !important;">  追加  </button>  </div>
+		        	<div class="panel-body">
+						<div class="btn-group">
+						  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    項目を選択してください<span class="caret"></span>
+						  </button>
+						  <ul class="dropdown-menu">
+							<li>加速度Ｘ</li>
+							<li>加速度Ｙ</li>
+							<li>加速度Ｚ</li>
+							<li>加速度Ｘ（lowpass）</li>
+							<li>加速度Ｙ（lowpass）</li>
+							<li>加速度Ｚ（lowpass）</li>
+							<li>ロール角度</li>
+							<li>ピッチ角度</li>
+							<li>ヨー角度</li>
+							<li>ＧＰＳ緯度</li>
+							<li>ＧＰＳ経度</li>
+							<li>ＧＰＳ速度</li>
+							<li>ＧＰＳ方位</li>
+							<li>ＧＰＳ高度</li>
+							<li>ＧＰＳ測位衛星数</li>
+							<li>ＧＰＳ誤差度</li>
+							<li>地図DB緯度</li>
+							<li>地図DB経度</li>
+							<li>地図DB緯度(度分秒)</li>
+							<li>地図DB経度(度分秒)</li>
+							<li>地図DB距離</li>
+							<li>地図DB地点ID</li>
+						  </ul>
+						</div>
+						<div class="btn-group">
+						  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    集約方法<span class="caret"></span>
+						  </button>
+						  <ul class="dropdown-menu">
+							<li>加速度Ｘ</li>
+							<li>加速度Ｙ</li>
+							<li>加速度Ｚ</li>
+							<li>地図DB距離</li>
+							<li>地図DB地点ID</li>
+						  </ul>
+						</div>
+						<input type="text" class="datetime" id="from" name="experimentDate" placeholder="" />
+						<input type="text" class="datetime" id="to" name="experimentDate" placeholder="" />
+						<button type="button" class="btn btn-sm btn-default pull-right ">  追加  </button>
+						<div>
+							<label class="radio-inline"><input type="radio" name="optradio"/><span class="glyphicon glyphicon-play" aria-hidden="true"></span></label>
+							<label class="radio-inline"><input type="radio" name="optradio"/><span class="glyphicon glyphicon-forward" aria-hidden="true"></span></label>
+							<label class="radio-inline"><input type="radio" name="optradio"/><span class="glyphicon glyphicon-fast-forward" aria-hidden="true"></span></label>
+							<label class="radio-inline"><input type="radio" name="optradio"/><span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></label>
+							<label class="radio-inline"><input type="radio" name="optradio"/><span class="glyphicon glyphicon-pause" aria-hidden="true"></span></label>
+							<label class="radio-inline"><input type="radio" name="optradio"/><span class="glyphicon glyphicon-stop" aria-hidden="true"></span></label>
+							<label class="radio-inline"><input type="radio" name="others"/><span>その他</span></label>
+						</div>
+					</div>
+		        </div>
+		        <!-- 集約条件２ -->
+		        <div class="panel panel-default">
+		        	<div class="panel-heading">集約条件２<button type="button" class="btn btn-sm btn-default pull-right ">  追加  </button>  </div>
+		        	<div class="panel-body">
+		        	
+			        	<select class="selectpicker" data-selected-text-format="count > 3">
+						  <option>Mustard</option>
+						  <option>Ketchup</option>
+						  <option>Relish</option>
+						  <option>Onions</option>
+						</select>
+		        	
+			        	<div class="controlgroup-vertical">
+					      <select>
+					        <option>Compact car</option>
+					        <option>Midsize car</option>
+					        <option>Full size car</option>
+					        <option>SUV</option>
+					        <option>Luxury</option>
+					        <option>Truck</option>
+					        <option>Van</option>
+					      </select>
+					      <label for="transmission-standard-v">Standard</label>
+					      <input type="radio" name="transmission-v" id="transmission-standard-v"/>
+					      <label for="transmission-automatic-v">Automatic</label>
+					      <input type="radio" name="transmission-v" id="transmission-automatic-v"/>
+					      <label for="insurance-v">Insurance</label>
+					      <input type="checkbox" name="insurance" id="insurance-v"/>
+					      <label for="vertical-spinner" class="ui-controlgroup-label"># of cars</label>
+					      <input id="vertical-spinner" class="ui-spinner-input"/>
+					      <button id="book">Book Now!</button>
+					    </div>
+					    
+						  <!-- <label><input type="radio" name="optradio"/>Option 1</label>
+						  <label><input type="radio" name="optradio"/>Option 2</label>
+						  <label><input type="radio" name="optradio" disabled="disable" />Option 3</label> -->
+						  
+						  <input type="radio" name="transmission" id="transmission-standard"/>
+					      <label for="transmission-automatic">Automatic</label>
+					      <input type="radio" name="transmission" id="transmission-automatic"/>
+					      <label for="insurance">Insurance</label>
+					      <input type="checkbox" name="insurance" id="insurance"/>
+					      <label for="horizontal-spinner" class="ui-controlgroup-label"># of cars</label>
+					      <input id="horizontal-spinner" class="ui-spinner-input"/>
+				    </div>
+		        </div>
+		        
+		        
+		    </div>
+		</fieldset>
+		<div class="clearfix center-block">
+			<button class="btn btn-default center-block" type="submit">Show Map</button>
+		</div>
+		<div style="margin-top: 10px;"></div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+    </footer>
+<!-- bootstrap/3.3.7 -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/js/bootstrap-select.min.js"></script>
+	
+<!--  bootstrap/4.0.0-alpha.5: 
+    jQuery first, then Tether, then Bootstrap JS.
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+  	<script src="https://v4-alpha.getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+  	<script type="text/javascript" src="js/ie10-viewport-bug-workaround.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/js/bootstrap-select.min.js"></script>
+  	 -->
+  </body>
 </html>

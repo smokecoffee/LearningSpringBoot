@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+	<meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="icon" href="https://v4-alpha.getbootstrap.com/favicon.ico"/>
+    
+    <title>Test Page Template for Bootstrap</title>
+    
+    <!-- Bootstrap CSS -->
+    
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous"> </link> -->
+    
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+ 	
+ 	<link rel="stylesheet" href="https://v4-alpha.getbootstrap.com/examples/sticky-footer-navbar/sticky-footer-navbar.css"/>
+ 	<link rel="stylesheet" href="css/custom.css"/>
+  </head>
+  <body>
+  
+    
+    <!-- Fixed navbar -->
+    <div class="pos-f-t">
+      <div class="collapse" id="navbar-header">
+        <div class="container bg-inverse p-1">
+          <h3>Collapsed content</h3>
+          <p>Toggleable via the navbar brand.</p>
+        </div>
+      </div>
+      <nav class="navbar navbar-light navbar-static-top bg-faded">
+        <div class="container">
+          <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2" aria-expanded="false" aria-controls="exCollapsingNavbar2" aria-label="Toggle navigation"></button>
+          <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
+            <a class="navbar-brand" href="#">Import CAN Data</a>
+            <ul class="nav navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Viewer <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Archives</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">More ..</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Begin page content -->
+    <div class="container">
+      <div class="mt-1">
+        <!-- <h1>Sticky footer with fixed navbar</h1> 
+        
+        抽出条件　= Extraction Condition
+コース　= Course
+対象Trip : 3Trip (フルモード) = Target Trip: 3 Trip (full mode)
+ドライバー　=　Driver
+実験日 = Experiment Date
+
+集約条件 = Summary Condition
+集約単位 = Summary Unit
+秒単位 = Second unit
+項目を選択してください = Please select item
+集約方法　= Summary Method
+追加　= Add
+その他　=　Other
+
+Text in parameters
+
+実験番号,
+フレーム,
+フレーム(画像抽出対応),
+ロール角速度,
+ピッチ角速度,
+ヨー角速度,
+加速度Ｘ,
+加速度Ｙ,
+加速度Ｚ,
+加速度Ｘ（lowpass）,
+加速度Ｙ（lowpass）,
+加速度Ｚ（lowpass）,
+ロール角度,
+ピッチ角度,
+ヨー角度,
+ＧＰＳ緯度,
+ＧＰＳ経度,
+ＧＰＳ速度,
+ＧＰＳ方位,
+ＧＰＳ高度,
+ＧＰＳ測位衛星数,
+ＧＰＳ誤差度,
+地図DB緯度,
+地図DB経度,
+地図DB緯度(度分秒),
+地図DB経度(度分秒),
+地図DB距離,
+地図DB地点ID,
+速度,
+速度（lowpass）,
+走行距離,
+走行距離（lowpass）,
+年月日,
+時分秒,
+ブレーキペダル踏込み量,
+ブレーキON/OFF,
+アクセルペダル踏込み量,
+アクセルON/OFF,
+シフト位置,
+オーバードライブ　ＯＦＦ,
+右ウィンカー,
+左ウィンカー,
+ハザードON/OFF,
+ブレーキランプ,
+ワイパー,
+ヘッドランプ,
+操舵角１回転,
+ブレーキペダル・カバー,
+アクセルペダル・カバー,
+操舵角,
+先行車との距離,
+先行車相対速度,
+先行車速度,
+後続車との距離,
+後続車相対速度,
+後続車速度,
+運転行為-第１段階速度系,
+運転行為-第１段階操舵系,
+運転行為-第１段階スムーズ済速度系,
+運転行為-第１段階スムーズ済操舵系,
+運転行為-第２段階速度系行為,
+運転行為-第２段階操舵系行為,
+運転行為-第３段階速度系準備,
+運転行為-第３段階速度系行為,
+運転行為-第３段階操舵系準備(計測),
+運転行為-最終段階操舵系行為(計測),
+運転行為-カーブ系行為,
+運転行為-交差点付近,
+運転行為-第３段階操舵系準備,
+運転行為-最終段階操舵系行為
+        -->
+      </div>
+      hello, <p th:text ="${name}" />
+	    
+	    <fieldset class="extra-condition-border">
+		    <legend class="extra-condition-border">抽出条件</legend>
+		    <div class="control-group">
+		        <label class="control-label input-label" for="course">コース :</label>
+		        <input type="text" class="datetime" id="course" name="course" placeholder="" />
+		        <span ></span>
+		        <label class="control-label input-label" for="driver">コース :</label>
+		        <input type="text" class="datetime" id="driver" name="driver" placeholder="" />
+		        <label class="control-label input-label" for="experimentDate">コース :</label>
+		        <input type="text" class="datetime" id="experimentDate" name="experimentDate" placeholder="" />
+		    </div>
+		</fieldset>
+		
+		 <fieldset class="summary-condition-border">
+		    <legend class="summary-condition-border">集約条件</legend>
+		    <div class="control-group">
+		    	<!-- 集約単位 = Summary Unit -->
+		        <label class="control-label input-label" for="summaryUnit">集約単位 :</label>
+		        <input type="text" class="datetime" id="summaryUnit" name="summaryUnit" placeholder="0.1" />
+		        <label>秒単位</label>
+		        
+		        
+		        <!-- 集約条件２ -->
+		        
+		        
+		    </div>
+		</fieldset>
+		<div class="center-block">
+			<button class="btn btn-primary center-block" type="submit">Show Map</button>
+		</div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+    </footer>
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+    
+    <!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  	<script src="https://v4-alpha.getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

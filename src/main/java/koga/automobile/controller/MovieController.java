@@ -14,20 +14,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
-
 @Controller
 @RequestMapping("/movie")
 public class MovieController {
-    
-    @RequestMapping(method = GET)
-    public String movie(Model model){
-//      MovieModel movieModel = movieDao.getByYear(year);
-        List<MovieModel> list = movieDao.getAllMovie();
-        model.addAttribute("movieModels", list);
-        return "movie";
-    }
-    
-  // Wire the UserDao used inside this controller.
-  @Autowired
-  private MovieDao movieDao;
+
+	@RequestMapping(method = GET)
+	public String movie(Model model) {
+		// MovieModel movieModel = movieDao.getByYear(year);
+		List<MovieModel> list = movieDao.getAllMovie();
+		model.addAttribute("movieModels", list);
+		return "movie";
+	}
+
+	// Wire the UserDao used inside this controller.
+	@Autowired
+	private MovieDao movieDao;
 }

@@ -10,8 +10,9 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import org.springframework.web.bind.annotation.RestController;
 
 import koga.automobile.service.StorageService;
@@ -22,8 +23,8 @@ import koga.automobile.storage.StorageProperties;
 @EnableConfigurationProperties(StorageProperties.class)
 public class AutomobileSensorApplication extends SpringBootServletInitializer{
 
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	String home() {
+	@RequestMapping(value = "/", method = GET)
+	String home(Model model) {
 		return "index";
 	}
 

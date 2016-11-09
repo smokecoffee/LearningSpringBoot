@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja" ng-app="myApp">
+    
+<head>
+    <title>動作検証</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"></meta>
+    <meta charset="UTF-8"></meta>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" ></link>
+    
+    <link rel="stylesheet" type="text/css" href="css/main.css" media="all"></link>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>
+    
+    <!-- JS Library which converts GeoJson to KML -->
+    <script src="js/tokml.js"></script>
+    <!-- bootStrap requires jQuery version at least 1.91 or higher-->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://code.angularjs.org/1.3.0/angular.js"></script>
+    <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+    <script src="http://tombatossals.github.io/angular-leaflet-directive/dist/angular-leaflet-directive.min.js"></script>
+    <!-- JS Library which enables to use Bingmap -->
+    <script src="js/bing.js"></script>
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+
+    <div id="main_contents" ng-controller="mainController" >
+            
+        <header>
+            <div id="header_upper" class="cf">
+                <div class="container">
+                    <div class="contact">
+                        <b>Phone:</b>000-111-2222
+                        <b>Email:</b><a href="mailto:XXX@example.com">XXX@example.com</a>
+                    </div>
+                    <div class="user-area">
+                            <a class="promoted register" href="" ><b>Register</b></a>
+                            <a href="#" class="sing-in">Sign In</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="header_middle">
+
+                <div class="middle_inner">
+                    <a class="main_logo" href="">
+                        xxxx<img src="images/aiLabo.png" alt="AI LABO"/>
+                    </a>
+
+                    <div id="button_wrapper">
+                        <div class="btn-group">
+                          <!--
+                          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                            Maps
+                          <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu">
+                              <li><a ng-disabled="true" ng-click="toggleLayer('osm')">OpenStreetMap</a></li>
+                              <li><a ng-disabled="true" ng-click="toggleLayer('kokudoTiriMap')">国土地理院地図</a></li>
+                              <li><a ng-disabled="true" ng-click="toggleLayer('bingAerial')">衛星写真(BingMap)</a></li>
+                          </ul>
+                        </div>
+                        -->
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                            Viewer
+                          <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu">
+                            <li><a ng-click="toggleTrip('trip1')">Trip1</a></li>
+                            <li><a ng-click="toggleTrip('trip2')">Trip2</a></li>
+                          </ul>
+                        </div>
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                            Marker
+                          <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu">
+                            <li><a ng-click="changeIcons('brakeIcon')" >ブレーキアイコン</a></li>
+                            <li><a ng-click="changeIcons('straightIcon')" >直進アイコン</a></li>
+                          </ul>
+                        </div>
+                    </div>
+                	</div>
+                </div>
+            </div>
+        </header>
+
+       <leaflet
+            id="viewMap"
+            event-broadcast="events"
+            lf-center="center"
+            markers="markers"
+            layers="layers">
+        </leaflet>
+        
+        <div id="download_content" class="cf">
+            <span>KMLファイルダウンロード</span>
+            <a id="dlKml" download="test.kml" ng-click="handleDownload()">
+                <img src="images/download_logo.png"/>
+            </a>
+            <!-- output an event listener message of markers -->
+            <p><strong ng-bind="eventDetected"></strong> event caught in listener.</p>
+        </div>
+    </div>
+    
+    <footer>
+    </footer>
+    
+</body>
+    
+</html>

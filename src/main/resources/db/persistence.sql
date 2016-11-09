@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS people  (
 
 --testId,frameNo,mapLatitude,mapLongitude,testYyddmm,testHhmmss,drivingTime
 CREATE TABLE IF NOT EXISTS CAN_DETAIL_DATA  (
-    id BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    id BIGINT(20) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     testId VARCHAR(20) NOT NULL,
     frameNo VARCHAR(20),
     mapLatitude VARCHAR(20),
